@@ -27,6 +27,7 @@ function myReduce(array,callback,initialResult){
                 i=1;
                 result=array[0];
         }
+        /*
 function reduce1(n,i,a){
         result=
 }
@@ -40,14 +41,16 @@ return res;*/
 //////////////////////////////////////////
 function createAddress(city, street) {
         //{city: city, street: street} <=> {city, street}
-        return {city, street}
+        return {city, street};
 }
 function createPerson(id, name, address) {
         return {id, name, address};
 }
+const ob=[as,bs,xs];
 const persons = [
         createPerson(123, "Vasya", createAddress("Rehovot","Parshani")),
         createPerson(124, "Olya", createAddress("Rehovot","Pr. Plaut")),
         createPerson(125, "Tolya", createAddress("Tel-Aviv","Dizengoff")),
         createPerson(126, "Sara", createAddress('Lod', 'Sokolov'))
-]
+];
+console.log(persons.toString());
