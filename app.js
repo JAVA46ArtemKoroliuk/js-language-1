@@ -1,56 +1,26 @@
 /*jshint esversion: 6 */
-const arr=[2,5,8,4,9,4,16];
-function myForEach(array, callback) {
-        for (let i = 0; i < array.length; i++) {
-                callback(array[i], i, array);
-        }
+const circle={radius:20, square:function(){return 3.14*(this.radius)**2}
+, perimetr:()=>2*3.14*this.radius, toString: function(){
+        return `radius of this circle is ${this.radius}`
+}};
+console.log(`shape = ${circle.square()}, perimetr = ${circle.perimetr()}`);
+console.log(`circle ${circle}`);
+const circle1 ={radius:20
+, perimetr: function(){ 2*3.14*this.radius}, toString: function(){
+        return `radius of this circle is ${this.radius}`;
+}};
+function Circle(radius){
+        this.radius=radius;
 }
-myForEach(arr, n=>console.log(n));
+Circle.prototype.square=function(){
+      return  3.14*(this.radius**2);
+}
+Circle.prototype.perimetr=function(){
+        return 2*3.14*this.radius;
+}
+Circle.prototype.toString=function(){
+        return `radius of this circle is ${this.radius}`;
+}
+const circle10=new Circle(10);
 
-function myFiltr(array,callback){
-    const res=[];
-
-if(myForEach(array,callback.call(n,i,a))==true) {
-
-      res.push(array[i]);  
-}
- 
-return res;
-}
-function big(max){return big>10;}
-const arr10=arr.myFilter(big);
-console.log(arr10);
-
-function myReduce(array,callback,initialResult){
-        let i=0;
-        if(arguments.length<2){
-                i=1;
-                result=array[0];
-        }
-        /*
-function reduce1(n,i,a){
-        result=
-}
-/*
-function forEachCall(n, i, a) {
-        res.push(callback(n, i, a));
-}
-myForEach(array, forEachCall);
-return res;*/
-
-//////////////////////////////////////////
-function createAddress(city, street) {
-        //{city: city, street: street} <=> {city, street}
-        return {city, street};
-}
-function createPerson(id, name, address) {
-        return {id, name, address};
-}
-const ob=[as,bs,xs];
-const persons = [
-        createPerson(123, "Vasya", createAddress("Rehovot","Parshani")),
-        createPerson(124, "Olya", createAddress("Rehovot","Pr. Plaut")),
-        createPerson(125, "Tolya", createAddress("Tel-Aviv","Dizengoff")),
-        createPerson(126, "Sara", createAddress('Lod', 'Sokolov'))
-];
-console.log(persons.toString());
+console.log(circle10);
